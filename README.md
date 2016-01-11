@@ -19,7 +19,8 @@ To use this sample, you need the following:
 4. Replace *ENTER_YOUR_TOKEN_ISSUING_ENDPOINT* with the *OAuth 2.0 token endpoint* value found by clicking the **View Endpoints** button in the Azure Management Portal.
 5. Run `npm install` to install the app's dependencies. 
 6. Run `npm start` to run the app.
-  > Note: This app will iterate through all users in your tenant and create a calendar event on each of their calendars. The event will have the title "Service health sync", be 30 minutes long, and will be exactly 24 hours from when you from the app.
+
+  > Note: This app will iterate through all users in your tenant and create a calendar event on each of their calendars. The event will have the title "Microsoft Graph API discussion", be 30 minutes long, and will be exactly 24 hours from when you from the app.
 
 ## Questions and comments
 * Please [log an issue in this repository](https://github.com/OfficeDev/O365-Nodejs-Microsoft-Graph-App-only/issues) with any feedback or questions about this sample.
