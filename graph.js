@@ -76,12 +76,12 @@ graph.createEvent = function (token, users) {
         'displayName': users[i].displayName
       },
       body: JSON.stringify(newEvent)
-    }, function (err, res, body) {
+    }, function (err, response, body) {
       if (err) {
         console.error('>>> Application error: ' + err);
       } else {
         var parsedBody = JSON.parse(body);
-        var displayName = res.request.headers.displayName;
+        var displayName = response.request.headers.displayName;
 
         if (parsedBody.error) {
           console.error('>>> Error creating an event for: ' + displayName);
