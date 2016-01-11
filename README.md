@@ -20,7 +20,7 @@ To use this sample, you need the following:
 5. Run `npm install` to install the app's dependencies. 
 6. Run `npm start` to run the app.
 
-  > Note: This app will iterate through all users in your tenant and create a calendar event on each of their calendars. The event will have the title "Microsoft Graph API discussion", be 30 minutes long, and will be exactly 24 hours from when you from the app.
+  > Note: This app will iterate through all users in your tenant and create a calendar event on each of their calendars. The event will have the title "Microsoft Graph API discussion", be 30 minutes long, and will be exactly 24 hours from when you ran the app.
 
 ## Questions and comments
 * Please [log an issue in this repository](https://github.com/OfficeDev/O365-Nodejs-Microsoft-Graph-App-only/issues) with any feedback or questions about this sample.
