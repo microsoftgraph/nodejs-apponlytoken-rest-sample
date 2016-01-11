@@ -1,7 +1,7 @@
 # Microsoft Graph service app sample using Node.js
 The Microsoft Graph API allows applications to call the API without user impersonation, that is, without a user signing in, using an app-only access token. This sample demonstrates how to request an app-only access token and create an event on each user calendar in a tenant using Node.js. 
 
-## Prerequesites
+## Prerequisites
 To use this sample, you need the following: 
 * [Node.js](https://nodejs.org/en/) is required to run the app and to install dependencies (via [npm](https://www.npmjs.com/)). 
 * An Office 365 account. You can sign up for [an Office 365 Developer subscription](https://portal.office.com/Signup/Signup.aspx?OfferId=6881A1CB-F4EB-4db3-9F18-388898DAF510&DL=DEVELOPERPACK&ali=1#0) that includes the resources that you need to start building Office 365 apps.
