@@ -76,16 +76,19 @@ graph.createEvent = function (token, users) {
         'displayName': users[i].displayName
       },
       body: JSON.stringify(newEvent)
-    }, function (err, res, body) {
+    }, function (err, response, body) {
       if (err) {
         console.error('>>> Application error: ' + err);
       } else {
         var parsedBody = JSON.parse(body);
-        var displayName = res.request.headers.displayName;
+        var displayName = response.request.headers.displayName;
 
         if (parsedBody.error) {
-          console.error('>>> Error creating an event for: ' + displayName);
-          console.error(parsedBody.error.message + '\n');
+          if (parsedBody.error.code === 'RequestBroker-ParseUri') {
+            console.error('>>> Error creating an event for ' + displayName  + '. Most likely due to this user having a MSA instead of an Office 365 account.');
+          } else {
+            console.error('>>> Error creating an event for ' + displayName  + '.' + parsedBody.error.message);
+          }
         } else {
           console.log('>>> Successfully created an event on ' + displayName + "'s calendar.");
         }
@@ -95,4 +98,3 @@ graph.createEvent = function (token, users) {
 };
 
 module.exports = graph;
- 
