@@ -1,0 +1,15 @@
+{
+  "name": "app-only",
+  "version": "1.0.0",
+  "description": "App-only permissions sample app.",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "q": "^1.4.1",
+    "request": "^2.67.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
