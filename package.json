@@ -16,10 +16,11 @@
   "devDependencies": {
     "eslint": "^2.3.0",
     "eslint-config-airbnb": "^6.1.0",
-    "eslint-plugin-react": "^4.2.1"
+    "eslint-plugin-react": "^4.2.1",
+    "mocha": "^2.4.5"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "mocha ./tests/confTest.js && node app.js",
     "lint": "eslint ."
   }
 }
