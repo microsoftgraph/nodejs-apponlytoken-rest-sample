@@ -18,14 +18,14 @@ auth.getAccessToken = function () {
   // These are the parameters necessary for the OAuth 2.0 Client Credentials Grant Flow.
   // For more information, see Service to Service Calls Using Client Credentials (https://msdn.microsoft.com/library/azure/dn645543.aspx).
   var requestParams = {
-    'grant_type': 'client_credentials',
-    'client_id': config.clientId,
-    'client_secret': config.clientSecret,
-    'resource': 'https://graph.microsoft.com'
+    grant_type: 'client_credentials',
+    client_id: config.clientId,
+    client_secret: config.clientSecret,
+    resource: 'https://graph.microsoft.com'
   };
 
   // Make a request to the token issuing endpoint.
-  request.post({url: config.tokenEndpoint, form: requestParams}, function (err, response, body) {
+  request.post({ url: config.tokenEndpoint, form: requestParams }, function (err, response, body) {
     var parsedBody = JSON.parse(body);
 
     if (err) {
@@ -42,4 +42,3 @@ auth.getAccessToken = function () {
 };
 
 module.exports = auth;
- 
