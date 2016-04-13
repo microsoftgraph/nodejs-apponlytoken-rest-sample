@@ -17,8 +17,8 @@ graph.getUsers = function (token) {
   // Make a request to get all users in the tenant. Use $select to only get
   // necessary values to make the app more performant.
   request.get('https://graph.microsoft.com/v1.0/users?$select=id,displayName', {
-    'auth': {
-      'bearer': token
+    auth: {
+      bearer: token
     }
   }, function (err, response, body) {
     var parsedBody = JSON.parse(body);
@@ -41,25 +41,29 @@ graph.getUsers = function (token) {
 // @param token The app's access token.
 // @param users An array of users in the tenant.
 graph.createEvent = function (token, users) {
-  for (var i = 0; i < users.length; i++) {
+  var i;
+  var startTime;
+  var endTime;
+  var newEvent;
+  for (i = 0; i < users.length; i++) {
     // The new event will be 30 minutes and take place tomorrow at the current time.
-    var startTime = new Date();
+    startTime = new Date();
     startTime.setDate(startTime.getDate() + 1);
-    var endTime = new Date(startTime.getTime() + 30 * 60000);
+    endTime = new Date(startTime.getTime() + 30 * 60000);
 
     // These are the fields of the new calendar event.
-    var newEvent = {
+    newEvent = {
       Subject: 'Microsoft Graph API discussion',
       Location: {
         DisplayName: "Joe's office"
       },
       Start: {
-        'DateTime': startTime,
-        'TimeZone': 'PST'
+        DateTime: startTime,
+        TimeZone: 'PST'
       },
       End: {
-        'DateTime': endTime,
-        'TimeZone': 'PST'
+        DateTime: endTime,
+        TimeZone: 'PST'
       },
       Body: {
         Content: 'Let\'s discuss this awesome API.',
@@ -72,22 +76,29 @@ graph.createEvent = function (token, users) {
       url: 'https://graph.microsoft.com/v1.0/users/' + users[i].id + '/events',
       headers: {
         'content-type': 'application/json',
-        'authorization': 'Bearer ' + token,
-        'displayName': users[i].displayName
+        authorization: 'Bearer ' + token,
+        displayName: users[i].displayName
       },
       body: JSON.stringify(newEvent)
     }, function (err, response, body) {
+      var parsedBody;
+      var displayName;
       if (err) {
         console.error('>>> Application error: ' + err);
       } else {
-        var parsedBody = JSON.parse(body);
-        var displayName = response.request.headers.displayName;
+        parsedBody = JSON.parse(body);
+        displayName = response.request.headers.displayName;
 
         if (parsedBody.error) {
           if (parsedBody.error.code === 'RequestBroker-ParseUri') {
-            console.error('>>> Error creating an event for ' + displayName  + '. Most likely due to this user having a MSA instead of an Office 365 account.');
+            console.error(
+              '>>> Error creating an event for ' + displayName +
+              '. Most likely due to this user having a MSA instead of an Office 365 account.'
+            );
           } else {
-            console.error('>>> Error creating an event for ' + displayName  + '.' + parsedBody.error.message);
+            console.error(
+              '>>> Error creating an event for ' + displayName + '.' + parsedBody.error.message
+            );
           }
         } else {
           console.log('>>> Successfully created an event on ' + displayName + "'s calendar.");
