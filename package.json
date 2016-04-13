@@ -4,6 +4,10 @@
   "description": "App-only permissions sample app.",
   "main": "app.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OfficeDev/O365-Nodejs-Microsoft-Graph-App-only"
+  },
   "dependencies": {
     "chalk": "^1.1.1",
     "q": "^1.4.1",
