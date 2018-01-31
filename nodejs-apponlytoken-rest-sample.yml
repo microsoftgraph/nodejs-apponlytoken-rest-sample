@@ -1,0 +1,21 @@
+### YamlMime:Sample
+sample:
+- name: Microsoft Graph service app sample using Node.js
+  path: ''
+  description: This sample shows how to connect a service or daemon app (written in Node.js) to the Microsoft Graph API.
+  readme: ''
+  generateZip: FALSE
+  isLive: TRUE
+  technologies:
+  - Microsoft Graph
+  - Azure AD
+  azureDeploy: ''
+  author: sethgr
+  platforms: []
+  languages:
+  - JavaScript
+  - node.js
+  extensions:
+    products:
+    - Office 365
+    scenarios: []
