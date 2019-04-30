@@ -1,5 +1,10 @@
-# Microsoft Graph service app sample using Node.js
-[![Build Status](https://travis-ci.org/microsoftgraph/nodejs-apponlytoken-rest-sample.svg?branch=master)](https://travis-ci.org/microsoftgraph/nodejs-apponlytoken-rest-sample)
+# [ARCHIVED] Microsoft Graph service app sample using Node.js
+
+## IMPORTANT
+
+**This project is being archived. As part of the archival process, we're closing all open issues and pull requests. For a current example that uses Node.js to access Microsoft Graph, see [Build Node.js Express apps with Microsoft Graph](https://docs.microsoft.com/en-us/graph/tutorials/node).**
+
+**You can continue to use this sample "as-is", but it won't be maintained moving forward. We apologize for any inconvenience.**
 
 The Microsoft Graph API allows applications to call the API without user impersonation, that is, without a user signing in, using an app-only access token. This sample demonstrates how to request an app-only access token and create an event on each user calendar in a tenant using Node.js. 
 
